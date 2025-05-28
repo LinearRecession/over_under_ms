@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone, time
 
 def should_update_prices(et_now, last_update_date):
     after_noon = (et_now.hour > 12) or (et_now.hour == 12 and et_now.minute >= 1 and et_now.second > 0)
-    return after_noon and (last_update_date < et_now.date())
+    return after_noon and (last_update_date.date() < et_now.date())
 
 def get_et_now():
     return (datetime.now(timezone.utc)
